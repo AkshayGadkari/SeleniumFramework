@@ -55,6 +55,16 @@ public class HomePage {
     }
 
 
+    public  WebElement getToSubLink(String subLink)
+    {
+        return driverN.findElement(By.xpath("//a[normalize-space()='"+subLink+"']"));
+    }
+
+    public  WebElement getToArea(String area)
+    {
+        return driverN.findElement(By.xpath("//span[normalize-space()='"+area+"']"));
+    }
+
 
     private static void waitForVisibility(WebElement element, WebDriver driverWB) throws Error {
         new WebDriverWait(driverWB, 15)

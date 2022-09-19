@@ -73,7 +73,8 @@ public class stepDefinition extends base {
 
         u = new Utilities(driver);
        u.scrollToViewWeb(hp.getToSection(section));
-
+       String actual= hp.getToSection(section).getText();
+        Assert.assertTrue(section.equalsIgnoreCase(actual));
     }
 
     @And(": Clicks on {string} link")
@@ -88,5 +89,20 @@ public class stepDefinition extends base {
         long minute=Long.parseLong(min);
         long wait=Utilities.minutesToMilliSecond(minute);
         Thread.sleep(wait);
+    }
+
+    @And(": Clicks on {string} sub link")
+    public void clicksOnSubLink(String subLink) throws InterruptedException {
+        u.scrollToViewWeb(hp.getToSubLink(subLink));
+        System.out.println(hp.getToSubLink(subLink).getText());
+        hp.getToSubLink(subLink).click();
+    }
+
+    @And(": Scrolls to {string} area")
+    public void scrollsToArea(String area) throws InterruptedException {
+
+        u.scrollToViewWeb(hp.getToArea(area));
+        String actual= hp.getToArea(area).getText();
+        Assert.assertTrue(area.equalsIgnoreCase(actual));
     }
 }

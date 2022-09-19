@@ -8,6 +8,8 @@ Feature: Journey
     And : User Clicks on hamburger menu
     And : Scrolls to "shop by department" Section
     And : Clicks on "TV, Appliances, Electronics" link
+    And : Clicks on "Televisions" sub link
+    And : Scrolls to "Brands" area
     And : wait for "1" min
 
 
