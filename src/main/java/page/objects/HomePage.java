@@ -29,6 +29,13 @@ public class HomePage {
     private WebElement sortByDropdown;
 
 
+    @FindBy(xpath = "//h1[normalize-space()='About this item']")
+    private WebElement aboutThisItemSection;
+
+    @FindBy(xpath = "//div[@id='feature-bullets']")
+    private WebElement aboutThisItemTextSection;
+
+    //div[@id='feature-bullets']
 
 //    @FindBy(xpath = "//div[normalize-space()='shop by department']")
 //    private WebElement shopByDepartment;
@@ -44,16 +51,28 @@ public class HomePage {
     }
 
     public WebElement getSortByDropdown() {
-        System.out.println("trying to get HamburgerMenu");
+        System.out.println("trying to get sortByDropdown");
         waitForVisibility(sortByDropdown, driverN);
         return sortByDropdown;
     }
 
-//    public WebElement getShopByDepartment() {
-//        System.out.println("trying to get HamburgerMenu");
-//        waitForVisibility(shopByDepartment, driverN);
-//        return shopByDepartment;
-//    }
+    public WebElement getAboutThisItemSection() {
+        System.out.println("trying to get aboutThisItemSection");
+        waitForVisibility(aboutThisItemSection, driverN);
+        return aboutThisItemSection;
+    }
+
+    public WebElement getAboutThisItemTextSection() {
+        System.out.println("trying to get aboutThisItemTextSection");
+        waitForVisibility(aboutThisItemTextSection, driverN);
+        return aboutThisItemTextSection;
+    }
+
+/*    public WebElement getShopByDepartment() {
+        System.out.println("trying to get shopByDepartment");
+        waitForVisibility(shopByDepartment, driverN);
+        return shopByDepartment;
+    }*/
 
     public  WebElement getToSection(String section)
     {

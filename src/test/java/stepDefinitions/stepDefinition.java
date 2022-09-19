@@ -5,6 +5,7 @@ import com.selenium.cbh.Utilities;
 import com.selenium.cbh.base;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.junit.Cucumber;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
@@ -121,8 +122,8 @@ public class stepDefinition extends base {
         hp.getTheSortByValue(sortBy).click();
     }
 
-    @And(": Click on the second highest priced item")
-    public void clickOnTheSecondHighestPricedItem() {
+    @And(": Click on the second highest price item")
+    public void clickOnTheSecondHighestPriceItem() {
 
 //        int k=Integer.parseInt(value);
 
@@ -161,18 +162,34 @@ public class stepDefinition extends base {
 
         for (String windowHandle : allHandles) {
             if (mainHandle.equals(windowHandle)) {
-                System.out.println(" \t Window ID 1:\t "+windowHandle+
-                        "\n \t URL : \t \t "+ driver.getCurrentUrl()+
-                        "\n \t Title : \t \t "+ driver.getTitle());
-            }
-            else {
+                System.out.println(" \t Window ID 1:\t " + windowHandle +
+                        "\n \t URL : \t \t " + driver.getCurrentUrl() +
+                        "\n \t Title : \t \t " + driver.getTitle());
+            } else {
                 driver.switchTo().window(windowHandle);
 
-                System.out.println(" \t Window ID 2:\t "+windowHandle+
-                        "\n \t URL : \t \t "+ driver.getCurrentUrl()+
-                        "\n \t Title : \t \t "+ driver.getTitle());
+                System.out.println(" \t Window ID 2:\t " + windowHandle +
+                        "\n \t URL : \t \t " + driver.getCurrentUrl() +
+                        "\n \t Title : \t \t " + driver.getTitle());
             }
 
+        }
+
+    }
+
+    @Then(": Check if About this item section is present")
+    public void checkIfAboutThisItemSectionIsPresent() throws InterruptedException {
+
+//        Utilities.isElementExists(hp.getAboutThisItemSection());
+
+        boolean isPresent = Utilities.isByExists(By.xpath("//h1[normalize-space()='About this item']"), driver);
+        if(isPresent){
+           u.scrollToViewWeb(hp.getAboutThisItemSection());
+            Assert.assertTrue(true);
+          String text= hp.getAboutThisItemTextSection().getText();
+            System.out.println(text);
+        }else{
+            Assert.fail("About this item Section is Not Present");
         }
 
     }

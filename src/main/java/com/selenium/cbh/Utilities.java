@@ -89,6 +89,8 @@ public class Utilities extends base{
         return isExists;
     }
 
+
+    //This one is for Android , Placeholder
     public static boolean isByExists(By by, AndroidDriver<AndroidElement> AD) {
         boolean isExists = true;
         try {

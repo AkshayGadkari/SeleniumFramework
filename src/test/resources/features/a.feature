@@ -12,13 +12,11 @@ Feature: Product Search Journey via Amazon Hamburger Menu
     And : Scrolls to "Brands" area
     And : Checks "Samsung" check box
     And : Selects "Price: High to Low" from Sort by dropdown
-    And : Click on the second highest priced item
-    And : Switch to Another Window
+    And : Click on the second highest price item
+    When : Switch to Another Window
+    Then : Check if About this item section is present
     And : wait for "1" min
 
-#  //span[@class='a-price-whole']
-#  //span[normalize-space()='12,49,990']
-#  //h1[normalize-space()='About this item']
 
 #  @DesktopBrowser @DesktopBrowserEnd
 #  @FullRegression
