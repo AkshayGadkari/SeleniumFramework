@@ -13,6 +13,7 @@ Feature: Product Search Journey via Amazon Hamburger Menu
     And : Checks "Samsung" check box
     And : Selects "Price: High to Low" from Sort by dropdown
     And : Click on the second highest priced item
+    And : Switch to Another Window
     And : wait for "1" min
 
 #  //span[@class='a-price-whole']

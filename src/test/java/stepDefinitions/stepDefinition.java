@@ -16,14 +16,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import page.objects.HomePage;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
 @RunWith(Cucumber.class)
 public class stepDefinition extends base {
 
-
-//    Utilities u;
 
     HomePage hp;
 
@@ -139,7 +138,8 @@ public class stepDefinition extends base {
 
             String price = item.getText();
 
-            driver.findElement(By.xpath("//span[normalize-space()='"+price+"']")).click();
+
+            driver.findElement(By.xpath("//span[normalize-space()='" + price + "']")).click();
             break;
 
         }
@@ -147,4 +147,33 @@ public class stepDefinition extends base {
 
     }
 
+    @And(": Switch to Another Window")
+    public void switchToAnotherWindow() {
+
+        //
+        String mainHandle = driver.getWindowHandle();
+        System.out.println("Main Window ID : " + mainHandle + "\n");
+
+        //
+
+        Set<String> allHandles = driver.getWindowHandles();
+        System.out.println("Number of Windows Open After Click : " + allHandles.size());
+
+        for (String windowHandle : allHandles) {
+            if (mainHandle.equals(windowHandle)) {
+                System.out.println(" \t Window ID 1:\t "+windowHandle+
+                        "\n \t URL : \t \t "+ driver.getCurrentUrl()+
+                        "\n \t Title : \t \t "+ driver.getTitle());
+            }
+            else {
+                driver.switchTo().window(windowHandle);
+
+                System.out.println(" \t Window ID 2:\t "+windowHandle+
+                        "\n \t URL : \t \t "+ driver.getCurrentUrl()+
+                        "\n \t Title : \t \t "+ driver.getTitle());
+            }
+
+        }
+
+    }
 }
