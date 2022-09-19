@@ -75,4 +75,18 @@ public class stepDefinition extends base {
        u.scrollToViewWeb(hp.getToSection(section));
 
     }
+
+    @And(": Clicks on {string} link")
+    public void clicksOnLink(String link) throws InterruptedException {
+        u.scrollToViewWeb(hp.getToLink(link));
+        System.out.println(hp.getToLink(link).getText());
+        hp.getToLink(link).click();
+    }
+
+    @And(": wait for {string} min")
+    public void waitForMin(String min) throws InterruptedException {
+        long minute=Long.parseLong(min);
+        long wait=Utilities.minutesToMilliSecond(minute);
+        Thread.sleep(wait);
+    }
 }

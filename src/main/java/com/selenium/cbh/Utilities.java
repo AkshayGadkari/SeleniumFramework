@@ -110,8 +110,8 @@ public class Utilities extends base{
     }
 
 
-    public static int minutesToMilliSecond(int min) {
-        int sec;
+    public static long minutesToMilliSecond(long min) {
+        long sec;
 
         sec = min * 60 * 1000;
 

@@ -49,9 +49,15 @@ public class HomePage {
         return driverN.findElement(By.xpath("//div[normalize-space()='"+section+"']"));
     }
 
+    public  WebElement getToLink(String link)
+    {
+        return driverN.findElement(By.xpath("//div[normalize-space()='"+link+"']"));
+    }
+
+
 
     private static void waitForVisibility(WebElement element, WebDriver driverWB) throws Error {
-        new WebDriverWait(driverWB, 30)
+        new WebDriverWait(driverWB, 15)
                 .until(ExpectedConditions.visibilityOf(element));
     }
 

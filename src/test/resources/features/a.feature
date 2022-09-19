@@ -7,7 +7,8 @@ Feature: Journey
     Given : Amazon is Open
     And : User Clicks on hamburger menu
     And : Scrolls to "shop by department" Section
-#  And : Clicks on "" link
+    And : Clicks on "TV, Appliances, Electronics" link
+    And : wait for "1" min
 
 
 #  @DesktopBrowser @DesktopBrowserEnd
