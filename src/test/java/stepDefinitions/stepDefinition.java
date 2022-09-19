@@ -8,11 +8,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.junit.Cucumber;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import page.objects.HomePage;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -50,10 +53,10 @@ public class stepDefinition extends base {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         String url = (String) prop.get("URL");
         driver.get(url);
-        String expectedTitle="Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
+        String expectedTitle = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
         String title = driver.getTitle();
         System.out.println(title);
-        Assert.assertEquals(expectedTitle,title);
+        Assert.assertEquals(expectedTitle, title);
         driver.manage().window().maximize();
 
     }
@@ -72,8 +75,8 @@ public class stepDefinition extends base {
     public void scrollsToSection(String section) throws InterruptedException {
 
         u = new Utilities(driver);
-       u.scrollToViewWeb(hp.getToSection(section));
-       String actual= hp.getToSection(section).getText();
+        u.scrollToViewWeb(hp.getToSection(section));
+        String actual = hp.getToSection(section).getText();
         Assert.assertTrue(section.equalsIgnoreCase(actual));
     }
 
@@ -86,8 +89,8 @@ public class stepDefinition extends base {
 
     @And(": wait for {string} min")
     public void waitForMin(String min) throws InterruptedException {
-        long minute=Long.parseLong(min);
-        long wait=Utilities.minutesToMilliSecond(minute);
+        long minute = Long.parseLong(min);
+        long wait = Utilities.minutesToMilliSecond(minute);
         Thread.sleep(wait);
     }
 
@@ -102,7 +105,7 @@ public class stepDefinition extends base {
     public void scrollsToArea(String area) throws InterruptedException {
 
         u.scrollToViewWeb(hp.getToArea(area));
-        String actual= hp.getToArea(area).getText();
+        String actual = hp.getToArea(area).getText();
         Assert.assertTrue(area.equalsIgnoreCase(actual));
     }
 
@@ -118,4 +121,30 @@ public class stepDefinition extends base {
         hp.getSortByDropdown().click();
         hp.getTheSortByValue(sortBy).click();
     }
+
+    @And(": Click on the second highest priced item")
+    public void clickOnTheSecondHighestPricedItem() {
+
+//        int k=Integer.parseInt(value);
+
+
+        List<WebElement> itemsList = driver.findElements(By.xpath("//span[@class='a-price-whole']"));
+
+//its already sorted , hence removing 1st element
+
+        itemsList.remove(0);
+
+        for (WebElement item : itemsList) {
+            System.out.println(item.getText());
+
+            String price = item.getText();
+
+            driver.findElement(By.xpath("//span[normalize-space()='"+price+"']")).click();
+            break;
+
+        }
+
+
+    }
+
 }
