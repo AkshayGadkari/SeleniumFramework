@@ -25,6 +25,11 @@ public class HomePage {
     @FindBy(xpath = "//a[@id='nav-hamburger-menu']")
     private WebElement hamburgerMenu;
 
+    @FindBy(xpath = "//span[@class='a-dropdown-label']")
+    private WebElement sortByDropdown;
+
+
+
 //    @FindBy(xpath = "//div[normalize-space()='shop by department']")
 //    private WebElement shopByDepartment;
 
@@ -36,6 +41,12 @@ public class HomePage {
         System.out.println("trying to get HamburgerMenu");
         waitForVisibility(hamburgerMenu, driverN);
         return hamburgerMenu;
+    }
+
+    public WebElement getSortByDropdown() {
+        System.out.println("trying to get HamburgerMenu");
+        waitForVisibility(sortByDropdown, driverN);
+        return sortByDropdown;
     }
 
 //    public WebElement getShopByDepartment() {
@@ -64,6 +75,18 @@ public class HomePage {
     {
         return driverN.findElement(By.xpath("//span[normalize-space()='"+area+"']"));
     }
+
+    public  WebElement getTheCheckbox(String checkBox)
+    {
+        return driverN.findElement(By.xpath("//span[@class='a-size-base a-color-base'][normalize-space()='"+checkBox+"']"));
+    }
+
+    public  WebElement getTheSortByValue(String sortValue)
+    {
+        return driverN.findElement(By.xpath("//a[normalize-space()='"+sortValue+"']"));
+    }
+
+
 
 
     private static void waitForVisibility(WebElement element, WebDriver driverWB) throws Error {

@@ -1,4 +1,4 @@
-Feature: Journey
+Feature: Product Search Journey via Amazon Hamburger Menu
 
 
   @DesktopBrowserStart @DesktopBrowserEnd
@@ -10,6 +10,8 @@ Feature: Journey
     And : Clicks on "TV, Appliances, Electronics" link
     And : Clicks on "Televisions" sub link
     And : Scrolls to "Brands" area
+    And : Checks "Samsung" check box
+    And : Selects "Price: High to Low" from Sort by dropdown
     And : wait for "1" min
 
 

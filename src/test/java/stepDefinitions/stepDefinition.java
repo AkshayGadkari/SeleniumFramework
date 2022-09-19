@@ -105,4 +105,17 @@ public class stepDefinition extends base {
         String actual= hp.getToArea(area).getText();
         Assert.assertTrue(area.equalsIgnoreCase(actual));
     }
+
+    @And(": Checks {string} check box")
+    public void checksCheckBox(String checkBox) throws InterruptedException {
+        u.scrollToViewWeb(hp.getTheCheckbox(checkBox));
+        System.out.println(hp.getTheCheckbox(checkBox).getText());
+        hp.getTheCheckbox(checkBox).click();
+    }
+
+    @And(": Selects {string} from Sort by dropdown")
+    public void selectsFromSortByDropdown(String sortBy) {
+        hp.getSortByDropdown().click();
+        hp.getTheSortByValue(sortBy).click();
+    }
 }
