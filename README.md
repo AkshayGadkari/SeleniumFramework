@@ -4,7 +4,7 @@
 This Framework is created as Part of Assignment
 
 
-External dependencies
+***External dependencies:***
 For this project to run, you would need to install below 3 dependencies on your machine:
 
 Java : java version "1.8.0_311" 
@@ -12,6 +12,8 @@ Java : java version "1.8.0_311"
 Build Tool:Apache Maven 3.8.4 (For Dependency management)
 
 Google Chrome latest version (browser to run your tests)
+
+Other Dependencies like Selenium,Cucumber etc are available in POM.xml
 
 **Framework features:**
 1. BDD approach using Cucumber java
