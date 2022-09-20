@@ -71,7 +71,8 @@ mvn test
 (This will Generate combined Cucumber HTML Report for all tests, Tag based execution)
 mvn verify -DskipTests
 
-
+***Report***:
+![image](https://user-images.githubusercontent.com/113853291/191365852-3073d589-acd2-45a6-9d58-941fc56ba9af.png)
 
 
 
