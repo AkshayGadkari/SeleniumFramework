@@ -148,10 +148,6 @@ public class Utilities extends base{
     }
 
 
-    public void scrollToViewWeb(WebElement we) throws InterruptedException {
-        ((JavascriptExecutor) driverN).executeScript("arguments[0].scrollIntoView(true);", we);
-        Thread.sleep(500);
-    }
 }
 
 

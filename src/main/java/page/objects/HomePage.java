@@ -4,21 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePage {
+public class HomePage extends BasePage{
 
     // All th objects & respective Methods belonging to one page will be defined in java class
-
-    WebDriver driverN;
-
-    //Constructor for Assigning current driver session to instance variable driverN
-    public HomePage(WebDriver driverWB) {
-        this.driverN = driverWB;
-        PageFactory.initElements(driverWB, this);
-    }
 
 
     //Private Elements Area
@@ -35,6 +24,10 @@ public class HomePage {
     @FindBy(xpath = "//div[@id='feature-bullets']")
     private WebElement aboutThisItemTextSection;
 
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
+
     //div[@id='feature-bullets']
 
 //    @FindBy(xpath = "//div[normalize-space()='shop by department']")
@@ -46,33 +39,28 @@ public class HomePage {
 
     public WebElement getHamburgerMenu() {
         System.out.println("trying to get HamburgerMenu");
-        waitForVisibility(hamburgerMenu, driverN);
+        waitForElementVisibility(hamburgerMenu);
         return hamburgerMenu;
     }
 
     public WebElement getSortByDropdown() {
         System.out.println("trying to get sortByDropdown");
-        waitForVisibility(sortByDropdown, driverN);
+        waitForElementVisibility(sortByDropdown);
         return sortByDropdown;
     }
 
     public WebElement getAboutThisItemSection() {
         System.out.println("trying to get aboutThisItemSection");
-        waitForVisibility(aboutThisItemSection, driverN);
+        waitForElementVisibility(aboutThisItemSection);
         return aboutThisItemSection;
     }
 
     public WebElement getAboutThisItemTextSection() {
         System.out.println("trying to get aboutThisItemTextSection");
-        waitForVisibility(aboutThisItemTextSection, driverN);
+        waitForElementVisibility(aboutThisItemTextSection);
         return aboutThisItemTextSection;
     }
 
-/*    public WebElement getShopByDepartment() {
-        System.out.println("trying to get shopByDepartment");
-        waitForVisibility(shopByDepartment, driverN);
-        return shopByDepartment;
-    }*/
 
     public  WebElement getToSection(String section)
     {
@@ -103,14 +91,6 @@ public class HomePage {
     public  WebElement getTheSortByValue(String sortValue)
     {
         return driverN.findElement(By.xpath("//a[normalize-space()='"+sortValue+"']"));
-    }
-
-
-
-
-    private static void waitForVisibility(WebElement element, WebDriver driverWB) throws Error {
-        new WebDriverWait(driverWB, 15)
-                .until(ExpectedConditions.visibilityOf(element));
     }
 
 
