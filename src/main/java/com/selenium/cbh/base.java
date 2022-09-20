@@ -1,4 +1,5 @@
 package com.selenium.cbh;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -7,7 +8,6 @@ import java.util.Properties;
 
 public class base {
 
-    public static Properties prop;
     public static Properties prop1;
 
     public static String runOnBs;
@@ -27,10 +27,10 @@ public class base {
 
 public Utilities u;
 
+public static global config = ConfigFactory.create(global.class);
+
     static {
         try {
-            //Whether we pass global or pass empty , only global .properties will be Connected by Default.
-            prop = Utilities.talkToProperties("global");
             prop1= Utilities.talkToProperties("other");
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,17 +38,18 @@ public Utilities u;
 
         String Os = System.getProperty("os.name");
         if (Os.contains("Windows")) {
-            runOnBs = (String) prop.get("runOnBrowserStack");
-            runOnLt = (String) prop.get("runOnLambdaTest");
-            runOnSl = (String) prop.get("runOnSauceLabs");
+            runOnBs = config.runOnBrowserStack();
+            runOnLt = config.runOnLambdaTest();
+            runOnSl = config.runOnSauceLabs();
 
-            bsUser =(String) prop.get("BS_Username");
-            bsAccessKey =(String) prop.get("BS_AccessKey");
+            bsUser = config.BS_Username();
+            bsAccessKey = config.BS_AccessKey();
 
-            ltUser =(String) prop.get("LT_Username");
-            ltAccessKey =(String) prop.get("LT_AccessKey");
+            ltUser = config.LT_Username();
+            ltAccessKey = config.LT_AccessKey();
 
         } else {
+            //For Linux machine which gets allocated by Bitrise CI CD .
             try {
                 cloudName = System.getenv("CLOUD_NAME");
                 if (cloudName.contentEquals("BS")) {
@@ -74,7 +75,7 @@ public Utilities u;
                     runOnBs = "NO";
                     runOnLt = "NO";
                     runOnSl = "YES";
-                    //Not using Saucelab , just a placeholder
+                    //Not Really using Saucelab , just a placeholder
                 }
             }catch(java.lang.NullPointerException npe){
                 npe.getMessage();
@@ -87,13 +88,11 @@ public Utilities u;
         System.out.println("Thread count is: "+threadCount);
 
         try {
-            OnCloud = Utilities.runOnCloud(runOnBs,runOnLt,runOnSl);
+            OnCloud = Utilities.runOnCloud();
         } catch (IOException  | java.lang.NullPointerException e ) {
             e.printStackTrace();
         }
 
     }
-
-
 
 }

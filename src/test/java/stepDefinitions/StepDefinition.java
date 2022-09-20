@@ -51,7 +51,7 @@ public class StepDefinition extends base {
         }
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        String url = (String) prop.get("URL");
+        String url = config.URL();
         driver.get(url);
         String expectedTitle = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
         String title = driver.getTitle();

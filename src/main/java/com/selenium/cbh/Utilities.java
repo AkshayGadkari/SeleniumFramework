@@ -16,21 +16,21 @@ public class Utilities extends base{
     }
 
 
-    public static boolean runOnCloud(String runOnBs, String runOnLt, String runOnSl) throws IOException, NullPointerException {
+    public static boolean runOnCloud() throws IOException, NullPointerException {
 
         boolean c = false;
 
-        if (runOnBs.contains("YES")) {
+        if (runOnBs.equalsIgnoreCase("YES")) {
 
             System.out.println("Trying to Run on Browserstack");
             return true;
         }
 
-        if (runOnLt.contains("YES")) {
+        if (runOnLt.equalsIgnoreCase("YES")) {
             System.out.println(" Running on Lambdatest ");
             return true;
         }
-        if (runOnSl.contains("YES")) {
+        if (runOnSl.equalsIgnoreCase("YES")) {
             System.out.println(" Running on SauceLab ");
             return true;
         }
