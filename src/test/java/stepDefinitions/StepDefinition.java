@@ -22,13 +22,13 @@ import java.util.concurrent.TimeUnit;
 
 
 @RunWith(Cucumber.class)
-public class stepDefinition extends base {
+public class StepDefinition extends base {
 
 
     HomePage hp;
 
 
-    public stepDefinition() {
+    public StepDefinition() {
     }
 
     @Given(": Amazon is Open")
@@ -122,8 +122,8 @@ public class stepDefinition extends base {
         hp.getTheSortByValue(sortBy).click();
     }
 
-    @And(": Click on the second highest price item")
-    public void clickOnTheSecondHighestPriceItem() {
+    @And(": Clicks on the second highest price item")
+    public void clicksOnTheSecondHighestPriceItem() {
 
 //        int k=Integer.parseInt(value);
 
@@ -177,8 +177,8 @@ public class stepDefinition extends base {
 
     }
 
-    @Then(": Check if About this item section is present")
-    public void checkIfAboutThisItemSectionIsPresent() throws InterruptedException {
+    @Then(": Checks if About this item section is present")
+    public void checksIfAboutThisItemSectionIsPresent() throws InterruptedException {
 
 //        Utilities.isElementExists(hp.getAboutThisItemSection());
 
