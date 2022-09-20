@@ -44,16 +44,31 @@ Feature File:
 
 By one of the three ways:
 
-1)mvn clean verify
+1)This will Generate Cucumber HTML Report after performing test
+
+mvn clean verify 
+
+
 
 OR
 
-2)mvn clean verify-Dcucumber.filter.tags="@FullRegression and
+2)(This will Generate Cucumber HTML Report after test, Tag based execution)
+
+mvn clean verify -Dcucumber.filter.tags="@FullRegression and
 not @Ignore"
 
+
 OR
 
-3)mvn test
+3)(Can run Multiple tests)
+
+mvn test
+mvn test
+mvn test
+..
+.
+
+(This will Generate combined Cucumber HTML Report for all tests, Tag based execution)
 mvn verify -DskipTests
 
 
