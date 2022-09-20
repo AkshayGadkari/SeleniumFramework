@@ -1,8 +1,5 @@
 package com.selenium.cbh;
 
-
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.*;
 
 import javax.imageio.ImageIO;
@@ -90,16 +87,6 @@ public class Utilities extends base{
     }
 
 
-    //This one is for Android , Placeholder
-    public static boolean isByExists(By by, AndroidDriver<AndroidElement> AD) {
-        boolean isExists = true;
-        try {
-            AD.findElement(by);
-        } catch (NoSuchElementException nse) {
-            isExists = false;
-        }
-        return isExists;
-    }
 
     public static boolean isByExists(By by, WebDriver WD) {
         boolean isExists = true;
