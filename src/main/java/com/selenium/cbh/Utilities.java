@@ -89,6 +89,8 @@ public class Utilities extends base{
         return isExists;
     }
 
+
+    //This one is for Android , Placeholder
     public static boolean isByExists(By by, AndroidDriver<AndroidElement> AD) {
         boolean isExists = true;
         try {
@@ -110,8 +112,8 @@ public class Utilities extends base{
     }
 
 
-    public static int minutesToMilliSecond(int min) {
-        int sec;
+    public static long minutesToMilliSecond(long min) {
+        long sec;
 
         sec = min * 60 * 1000;
 

@@ -25,6 +25,18 @@ public class HomePage {
     @FindBy(xpath = "//a[@id='nav-hamburger-menu']")
     private WebElement hamburgerMenu;
 
+    @FindBy(xpath = "//span[@class='a-dropdown-label']")
+    private WebElement sortByDropdown;
+
+
+    @FindBy(xpath = "//h1[normalize-space()='About this item']")
+    private WebElement aboutThisItemSection;
+
+    @FindBy(xpath = "//div[@id='feature-bullets']")
+    private WebElement aboutThisItemTextSection;
+
+    //div[@id='feature-bullets']
+
 //    @FindBy(xpath = "//div[normalize-space()='shop by department']")
 //    private WebElement shopByDepartment;
 
@@ -38,20 +50,66 @@ public class HomePage {
         return hamburgerMenu;
     }
 
-//    public WebElement getShopByDepartment() {
-//        System.out.println("trying to get HamburgerMenu");
-//        waitForVisibility(shopByDepartment, driverN);
-//        return shopByDepartment;
-//    }
+    public WebElement getSortByDropdown() {
+        System.out.println("trying to get sortByDropdown");
+        waitForVisibility(sortByDropdown, driverN);
+        return sortByDropdown;
+    }
+
+    public WebElement getAboutThisItemSection() {
+        System.out.println("trying to get aboutThisItemSection");
+        waitForVisibility(aboutThisItemSection, driverN);
+        return aboutThisItemSection;
+    }
+
+    public WebElement getAboutThisItemTextSection() {
+        System.out.println("trying to get aboutThisItemTextSection");
+        waitForVisibility(aboutThisItemTextSection, driverN);
+        return aboutThisItemTextSection;
+    }
+
+/*    public WebElement getShopByDepartment() {
+        System.out.println("trying to get shopByDepartment");
+        waitForVisibility(shopByDepartment, driverN);
+        return shopByDepartment;
+    }*/
 
     public  WebElement getToSection(String section)
     {
         return driverN.findElement(By.xpath("//div[normalize-space()='"+section+"']"));
     }
 
+    public  WebElement getToLink(String link)
+    {
+        return driverN.findElement(By.xpath("//div[normalize-space()='"+link+"']"));
+    }
+
+
+    public  WebElement getToSubLink(String subLink)
+    {
+        return driverN.findElement(By.xpath("//a[normalize-space()='"+subLink+"']"));
+    }
+
+    public  WebElement getToArea(String area)
+    {
+        return driverN.findElement(By.xpath("//span[normalize-space()='"+area+"']"));
+    }
+
+    public  WebElement getTheCheckbox(String checkBox)
+    {
+        return driverN.findElement(By.xpath("//span[@class='a-size-base a-color-base'][normalize-space()='"+checkBox+"']"));
+    }
+
+    public  WebElement getTheSortByValue(String sortValue)
+    {
+        return driverN.findElement(By.xpath("//a[normalize-space()='"+sortValue+"']"));
+    }
+
+
+
 
     private static void waitForVisibility(WebElement element, WebDriver driverWB) throws Error {
-        new WebDriverWait(driverWB, 30)
+        new WebDriverWait(driverWB, 15)
                 .until(ExpectedConditions.visibilityOf(element));
     }
 
