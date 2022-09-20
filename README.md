@@ -36,6 +36,10 @@ src/test/java/cucumberOptions/TestRunner.java
 
 ![image](https://user-images.githubusercontent.com/113853291/191362660-c5454161-d67e-4543-8b25-052f19d73ba1.png)
 
+Feature File:
+
+![image](https://user-images.githubusercontent.com/113853291/191363111-65c4b062-682a-4a73-bdd6-a18209966936.png)
+
 ***Execution By Command line***
 
 By one of the three ways:
