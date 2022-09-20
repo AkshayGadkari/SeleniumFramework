@@ -1,7 +1,9 @@
 
 # SeleniumFramework CBH
 
-This Framework is created as Part of Assignment
+This Framework is created as a part of Assignment For Web Automation.
+
+(Later can be enhanced to support mobile automation using Appium )
 
 
 ***External dependencies:***
@@ -13,7 +15,7 @@ Build Tool:Apache Maven 3.8.4 (For Dependency management)
 
 Google Chrome latest version (browser to run your tests)
 
-Other Dependencies like Selenium,Cucumber etc are available in POM.xml
+(Other Dependencies like Selenium,Cucumber etc are available in POM.xml)
 
 **Framework features:**
 1. BDD approach using Cucumber java
