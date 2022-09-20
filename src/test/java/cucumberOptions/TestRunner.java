@@ -26,7 +26,6 @@ public class TestRunner extends base {
     public static void endThis() {
 
 //        the clear() method is used to only empty an existing Properties
-        prop.clear();
         prop1.clear();
 
 

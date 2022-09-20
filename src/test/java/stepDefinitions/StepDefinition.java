@@ -51,7 +51,7 @@ public class StepDefinition extends base {
         }
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        String url = (String) prop.get("URL");
+        String url = config.URL();
         driver.get(url);
         String expectedTitle = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
         String title = driver.getTitle();
@@ -67,24 +67,23 @@ public class StepDefinition extends base {
 
         //Important step: only 1 time Object Creation. Same Reference can be used in further methods in other Scenarios
         hp = new HomePage(driver);
-        hp.getHamburgerMenu().click();
+       hp.click(hp.getHamburgerMenu());
 
     }
 
     @And(": Scrolls to {string} Section")
-    public void scrollsToSection(String section) throws InterruptedException {
+    public void scrollsToSection(String section) {
 
-        u = new Utilities(driver);
-        u.scrollToViewWeb(hp.getToSection(section));
+       hp.scrollToElement(hp.getToSection(section));
         String actual = hp.getToSection(section).getText();
         Assert.assertTrue(section.equalsIgnoreCase(actual));
     }
 
     @And(": Clicks on {string} link")
-    public void clicksOnLink(String link) throws InterruptedException {
-        u.scrollToViewWeb(hp.getToLink(link));
+    public void clicksOnLink(String link) {
+       hp.scrollToElement(hp.getToLink(link));
         System.out.println(hp.getToLink(link).getText());
-        hp.getToLink(link).click();
+        hp.click(hp.getToLink(link));
     }
 
     @And(": wait for {string} min")
@@ -95,31 +94,31 @@ public class StepDefinition extends base {
     }
 
     @And(": Clicks on {string} sub link")
-    public void clicksOnSubLink(String subLink) throws InterruptedException {
-        u.scrollToViewWeb(hp.getToSubLink(subLink));
+    public void clicksOnSubLink(String subLink) {
+       hp.scrollToElement(hp.getToSubLink(subLink));
         System.out.println(hp.getToSubLink(subLink).getText());
-        hp.getToSubLink(subLink).click();
+       hp.click(hp.getToSubLink(subLink));
     }
 
     @And(": Scrolls to {string} area")
-    public void scrollsToArea(String area) throws InterruptedException {
+    public void scrollsToArea(String area) {
 
-        u.scrollToViewWeb(hp.getToArea(area));
+       hp.scrollToElement(hp.getToArea(area));
         String actual = hp.getToArea(area).getText();
         Assert.assertTrue(area.equalsIgnoreCase(actual));
     }
 
     @And(": Checks {string} check box")
-    public void checksCheckBox(String checkBox) throws InterruptedException {
-        u.scrollToViewWeb(hp.getTheCheckbox(checkBox));
+    public void checksCheckBox(String checkBox) {
+       hp.scrollToElement(hp.getTheCheckbox(checkBox));
         System.out.println(hp.getTheCheckbox(checkBox).getText());
-        hp.getTheCheckbox(checkBox).click();
+        hp.click(hp.getTheCheckbox(checkBox));
     }
 
     @And(": Selects {string} from Sort by dropdown")
     public void selectsFromSortByDropdown(String sortBy) {
-        hp.getSortByDropdown().click();
-        hp.getTheSortByValue(sortBy).click();
+        hp.click(hp.getSortByDropdown());
+        hp.click(hp.getTheSortByValue(sortBy));
     }
 
     @And(": Clicks on the second highest price item")
@@ -139,8 +138,7 @@ public class StepDefinition extends base {
 
             String price = item.getText();
 
-
-            driver.findElement(By.xpath("//span[normalize-space()='" + price + "']")).click();
+            hp.click(By.xpath("//span[normalize-space()='" + price + "']"));
             break;
 
         }
@@ -178,13 +176,13 @@ public class StepDefinition extends base {
     }
 
     @Then(": Checks if About this item section is present")
-    public void checksIfAboutThisItemSectionIsPresent() throws InterruptedException {
+    public void checksIfAboutThisItemSectionIsPresent() {
 
 //        Utilities.isElementExists(hp.getAboutThisItemSection());
 
         boolean isPresent = Utilities.isByExists(By.xpath("//h1[normalize-space()='About this item']"), driver);
         if(isPresent){
-           u.scrollToViewWeb(hp.getAboutThisItemSection());
+          hp.scrollToElement(hp.getAboutThisItemSection());
             Assert.assertTrue(true);
           String text= hp.getAboutThisItemTextSection().getText();
             System.out.println(text);
