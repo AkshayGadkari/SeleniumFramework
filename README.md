@@ -26,7 +26,10 @@ Other Dependencies like Selenium,Cucumber etc are available in POM.xml
 
 ***Execution By IDE***
 
-Find TestRunner file and run.
+Find TestRunner file and run
+
+Path:
+
 src/test/java/cucumberOptions/TestRunner.java
 
 ***Execution By Command line***
