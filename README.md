@@ -1,7 +1,7 @@
 
 # SeleniumFramework CBH
 
-This Framework is created as a part of Assignment For Web Automation.
+This Framework is created as a part of Assignment For Web Automation. (This Framewoek needs improvements related to clean coding practices and coding standards)
 
 (Later can be enhanced to support mobile automation using Appium )
 
